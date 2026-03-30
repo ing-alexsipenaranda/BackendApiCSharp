@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiBackendCsharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42449b766fa32b9b689709b83e7637838ed9ee18")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiBackendCsharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiBackendCsharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,10 @@
+# Compilación de Visual Studio / .NET
+bin/
+obj/
+*.user
+*.suo
+*.vs/
+*.vscode/
+
+# Archivos de configuración local
+appsettings.Development.json
