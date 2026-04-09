@@ -33,6 +33,13 @@ namespace MyApp.Namespace
         {
             return a / b;
         }
+
+        [HttpGet("sum")]
+        public decimal Sum(decimal a,decimal b)
+        {
+            return a + b;
+        }
+
     }
 
 

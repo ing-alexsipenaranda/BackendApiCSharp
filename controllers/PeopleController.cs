@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ApiBackendCsharp.Services;
+
 
 namespace MyApp.Namespace
 {
@@ -7,11 +9,19 @@ namespace MyApp.Namespace
     [ApiController]
     public class PeopleController : ControllerBase
     {
+        private  IPeopleService _peopleService;
+
+        public PeopleController([FromKeyedServices("PeopleService")] IPeopleService peopleService)
+        {
+            _peopleService = peopleService;
+        }
+
         [HttpGet("all")]
         public List<People> GetPeoples()
         {
             return Repository.People;
         }
+      
         [HttpGet("{id}")]
         public ActionResult<People> GetPeopleById(int id)
         {
@@ -32,7 +42,7 @@ namespace MyApp.Namespace
         [HttpPost]
         public IActionResult Add(People people)
         {
-            if (people == null || string.IsNullOrEmpty(people.Name))
+            if (!_peopleService.Validate(people))
             {
                 return BadRequest("El nombre es obligatorio.");
             }

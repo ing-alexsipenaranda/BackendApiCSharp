@@ -1,6 +1,18 @@
+
+
+using ApiBackendCsharp.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Servicios
+//builder.Services.AddSingleton<IPeopleService, ApiBackendCsharp.People2Service>();
+builder.Services.AddKeyedSingleton<IPeopleService, ApiBackendCsharp.PeopleService>("PeopleService");
+builder.Services.AddKeyedSingleton<IPeopleService, ApiBackendCsharp.People2Service>("People2Service");
+    
+
+builder.Services.AddKeyedSingleton<IRandomServices, ApiBackendCsharp.Services.RandomServices>("randomSingleton");
+builder.Services.AddKeyedScoped<IRandomServices, ApiBackendCsharp.Services.RandomServices>("randomScoped");
+builder.Services.AddKeyedTransient<IRandomServices, ApiBackendCsharp.Services.RandomServices>("randomTransient");
+
 builder.Services.AddControllers();        // Registra los controladores
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
